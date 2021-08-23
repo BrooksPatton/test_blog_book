@@ -12,16 +12,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Install MdBook
-        run: cargo install mdbook
-      - name: Build the book
-        run: mdbook build
       - name: Create .ssh folder
         run: mkdir ~/.ssh
       - name: Save key
         run: echo {{ secrets.DIGITAL_OCEAN_KEY }} > ~/.ssh/id_ed25519
       - name: fix .ssh permissions
         run: chmod 700 ~/.ssh
+      - name: hopefully not expose key
+        run: cat ~/.ssh/id_ed25519
       - name: Run Deploy Script
         run: ssh brooks@137.184.46.223 "bash -e test_blog_book/install.sh"
+      # - uses: actions/checkout@v2
+      # - name: Install MdBook
+      #   run: cargo install mdbook
+      # - name: Build the book
+      #   run: mdbook build

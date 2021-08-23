@@ -23,7 +23,7 @@ jobs:
       - name: hopefully not expose key
         run: cat ~/.ssh/id_ed25519
       - name: Run Deploy Script
-        run: ssh -i ~/.ssh/id_ed25519 brooks@137.184.46.223 "bash -e test_blog_book/install.sh >> log"
+        run: ssh -i ~/.ssh/id_ed25519 brooks@137.184.46.223 "bash -e test_blog_book/install.sh 2>&1 >> log"
       # - uses: actions/checkout@v2
       # - name: Install MdBook
       #   run: cargo install mdbook

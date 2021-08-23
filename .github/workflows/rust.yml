@@ -1,0 +1,20 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  buildAndDeploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install MdBook
+      run: cargo install mdbook
+    - name: Build the book
+      run: mdbook build

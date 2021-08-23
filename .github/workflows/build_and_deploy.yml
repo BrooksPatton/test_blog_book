@@ -20,7 +20,7 @@ jobs:
       - name: Create .ssh folder
         run: mkdir ~/.ssh
       - name: Save key
-        run: echo "$DIGITAL_OCEAN_KEY" > ~/.ssh/id_ed25519
+        run: echo${{ secrets.DIGITAL_OCEAN_KEY }} > ~/.ssh/id_ed25519
       - name: fix .ssh permissions
         run: chmod 700 ~/.ssh
       - name: Run Deploy Script

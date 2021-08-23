@@ -1,0 +1,27 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [master]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  buildAndDeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install MdBook
+        run: cargo install mdbook
+      - name: Build the book
+        run: mdbook build
+      - name: Create .ssh folder
+        run: mkdir ~/.ssh
+      - name: Save key
+        run: echo "$DIGITAL_OCEAN_KEY" > ~/.ssh/id_ed25519
+      - name: fix .ssh permissions
+        run: chmod 700 ~/.ssh
+      - name: Run Deploy Script
+        run: ssh brooks@137.184.46.223 "bash -e test_blog_book/install.sh"

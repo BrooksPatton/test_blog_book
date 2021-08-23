@@ -17,7 +17,7 @@ jobs:
       - name: Save key
         run: echo "${{ secrets.DIGITAL_OCEAN_KEY }}" > ~/.ssh/id_ed25519
       - name: fix .ssh permissions
-        run: chmod 700 ~/.ssh
+        run: chmod -R 700 ~/.ssh
       - name: hopefully not expose key
         run: cat ~/.ssh/id_ed25519
       - name: Run Deploy Script

@@ -16,6 +16,8 @@ jobs:
         run: mkdir ~/.ssh
       - name: Save key
         run: echo "${{ secrets.DIGITAL_OCEAN_KEY }}" > ~/.ssh/id_ed25519
+      - name: Save known host
+        run: echo "${{ secrets.DROPLET_KNOWN_HOST }}" >> ~/.ssh/known_hosts
       - name: fix .ssh permissions
         run: chmod -R 700 ~/.ssh
       - name: hopefully not expose key

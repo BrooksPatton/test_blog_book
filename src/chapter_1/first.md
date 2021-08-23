@@ -2,6 +2,13 @@
 
 ## To be done
 
+areistarst
+ars
+t
+arst
+a
+rst
+
 - [x] Set up CI/CD with GitHub Actions
 - [ ] Set up SSL keys with GitHub Actions to run command on Digital Ocean
 - [ ] Set up domain for book

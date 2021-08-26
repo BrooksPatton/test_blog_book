@@ -17,3 +17,5 @@
 restrict,pty,command="nethack" ssh-rsa AAAA1f8...IrrC5==
 
 Domain is type A with ip address of the server
+
+- [ ] Setting up Ansible for Digital Ocean droplet automation (https://www.redhat.com/en/blog/system-administrators-guide-getting-started-ansible-fast)
